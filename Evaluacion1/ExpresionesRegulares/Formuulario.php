@@ -20,7 +20,7 @@ EJERCICIO:
 </body>
 </html>
 <?php
-} // En esta parte comprobamos los datos recibidos
+}
 else {
     $cad=$_REQUEST['cad'];
     $ejerType=$_REQUEST['ejer'];
