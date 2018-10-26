@@ -31,15 +31,20 @@ function sinTildes($frase) {
 	return $texto;
 }
 
-function sinEspacios($frase) {
+function sinEspaciosSobrantes($frase) {
 	$texto = trim(preg_replace('/ +/', ' ', $frase));
 	return $texto;
+}
+
+function sinEspacios($frase) {
+    $texto = trim(preg_replace('/ +/', '', $frase));
+    return $texto;
 }
 
 function recoge($var)
 {
 	if (isset($_REQUEST[$var]))
-		$tmp=strip_tags(sinEspacios($_REQUEST[$var]));
+	    $tmp=strip_tags(sinEspaciosSobrantes($_REQUEST[$var]));
 	else 
 		$tmp= "";
 	

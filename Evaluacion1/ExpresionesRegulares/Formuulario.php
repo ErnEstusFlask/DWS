@@ -20,10 +20,10 @@ EJERCICIO:
 </body>
 </html>
 <?php
-}
+} // En esta parte comprobamos los datos recibidos
 else {
-    $cad=$_REQUEST['cad'];
-    $ejerType=$_REQUEST['ejer'];
+    $cad=recoge('cad');
+    $ejerType=recoge('ejer');
     
     if($ejerType=="ej1"){
         if ((Ej1($cad) == true)) {
@@ -38,13 +38,13 @@ else {
             echo "No coincide";;
         }
     }else if($ejerType=="ej3"){
-        if ((Ej1($cad) == true)) {
+        if ((Ej3($cad) == true)) {
             echo "Coincide";
         }else{
             echo "No coincide";;
         }
     }else if($ejerType=="ej4"){
-        if ((Ej1($cad) == true)) {
+        if ((Ej4($cad) == true)) {
             echo "Coincide";
         }else{
             echo "No coincide";;
