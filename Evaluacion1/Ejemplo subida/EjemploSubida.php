@@ -25,6 +25,20 @@ If (! isset($_REQUEST['bAceptar'])) {
         "jpg",
         "png",
         "gif"
+    /*
+    PIDE
+    nombre
+    tamaño
+    carpeta
+    extensiones
+    
+    
+    DEVUELVE
+    nombre
+    boolean
+    errores
+    */
+    
     );
     
     echo "<pre>";
