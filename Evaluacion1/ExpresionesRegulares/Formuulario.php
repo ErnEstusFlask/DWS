@@ -14,6 +14,7 @@ EJERCICIO:
   <option value="ej2">Ej2</option>
   <option value="ej3">Ej3</option>
   <option value="ej4">Ej4</option>
+  <option value="ej5">Ej5</option>
 </select><br>
 <input type="submit" value="Enviar" name="bAceptar">
 </form>
@@ -45,6 +46,12 @@ else {
         }
     }else if($ejerType=="ej4"){
         if ((Ej4($cad) == true)) {
+            echo "Coincide";
+        }else{
+            echo "No coincide";;
+        }
+    }else if($ejerType=="ej5"){
+        if ((Ej5($cad) == true)) {
             echo "Coincide";
         }else{
             echo "No coincide";;

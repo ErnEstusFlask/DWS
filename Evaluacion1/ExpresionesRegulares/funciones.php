@@ -14,10 +14,14 @@ function Ej3(string $str){
 }
 
 function Ej4(string $str){
-    return preg_match("/^[A-Z|a-z]+\w_{8,24}$/" , $str);
+    if (preg_match("/^[A-Z|a-z]+/" , $str)==true){
+        return preg_match("/[\w_]{8,24}$/" , $str);
+    }else{
+        return false;
+    }
 }
 
 function Ej5(string $str){
-    return preg_match("/^[a-z|A-Z]+[\w_]{8,24}$/", $str);
+    return preg_match("/^[A-Z|a-z]+\w_{8,24}$/", $str);
 }
 
