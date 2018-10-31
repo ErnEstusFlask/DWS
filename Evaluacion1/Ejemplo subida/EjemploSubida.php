@@ -1,4 +1,17 @@
 <?php
+/*
+ PIDE
+ nombre
+ tamaño
+ carpeta
+ extensiones
+ 
+ 
+ DEVUELVE
+ nombre
+ boolean
+ errores
+ */
 include ('bGeneral.php');
 // Cargamos cabecera html
 cabecera('ejemplo.php');
@@ -25,20 +38,6 @@ If (! isset($_REQUEST['bAceptar'])) {
         "jpg",
         "png",
         "gif"
-    /*
-    PIDE
-    nombre
-    tamaño
-    carpeta
-    extensiones
-    
-    
-    DEVUELVE
-    nombre
-    boolean
-    errores
-    */
-    
     );
     
     echo "<pre>";
