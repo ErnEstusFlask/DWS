@@ -5,13 +5,13 @@ $error = false;
 if (! isset($_REQUEST['bAceptar'])) {
     ?>
 
-<form ACTION="<?=$_SERVER ['PHP_SELF'] //el archivo actual?>"
-	METHOD="post">
+<form method="post" action="EjemploSubida.php"
+	enctype="multipart/form-data">
 NOMBRE:<input type="text" name="nombre" size="10"><br>
 EDAD:<input type="text" name="edad" size="10"><br>
 EMAIL:<input type="text" name="correo" size="10"><br>
 <input type="file" name="imagen" id="imagen" />
-<input type="submit" value="Enviar" name="bAceptar">
+<input type="submit" name="bAceptar" value="Subir fichero" />
 </form>
 </body>
 </html>
@@ -22,8 +22,8 @@ else {
     $age=$_REQUEST['edad'];
     $mail=$_REQUEST['correo'];
     $mail = filter_var($mail, FILTER_SANITIZE_EMAIL);
-    $dir = "archivos/";
-    $max_file_size = "51200";
+    $dir = "imagenes/";
+    $max_file_size = "(200000";
     $extensionesValidas = array("jpeg", "gif");
     
     echo "<pre>";
@@ -77,6 +77,7 @@ else {
             $directorioTemp = $_FILES['imagen']['tmp_name'];
             // Guardamos la información del archivo en un array
             $arrayArchivo = pathinfo($nombreArchivo);
+            $errores=array();
             /*
              * Extraemos la extensión del fichero, desde el último punto. Si hubiese doble extensión, no lo
              * tendría en cuenta.
@@ -93,12 +94,15 @@ else {
             
             // Almacenamos el archivo en ubicación definitiva si no hay errores
             if (empty($errores)) {
-                // Añadimo time() al nombre del fichero, así lo haremos único y si tuviera doble extensión
+                // Añadimos time() al nombre del fichero, así lo haremos único y si tuviera doble extensión
                 // Haríamos inservible la segunda.
                 $nombreArchivo = $arrayArchivo['filename'] . time();
                 $nombreCompleto = $dir . $nombreArchivo . "." . $extension;
                 // Movemos el fichero a la ubicación definitiva
                 if (move_uploaded_file($directorioTemp, $nombreCompleto)) {
+                    echo "<b>NOMBRE: </b>".$name;
+                    echo "<b>EDAD: </b>".$age;
+                    echo "<b>EMAIL: </b>".$mail;
                     echo "<br> El fichero \"$nombreCompleto\" ha sido guardado";
                 } else {
                     echo "Error: No se puede mover el fichero a su destino";

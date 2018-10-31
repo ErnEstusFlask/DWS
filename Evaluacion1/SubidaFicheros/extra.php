@@ -14,29 +14,30 @@
  */
 include ('bGeneral.php');
 // Cargamos cabecera html
-cabecera('ejemplo.php');
+cabecera('Subida.php');
 // Si no hemos pulsado el botón aceptar => cargamos el formulario
 If (! isset($_REQUEST['bAceptar'])) {
     ?>
 <html>
 <h1>Subida de ficheros</h1>
-<form method="post" action="EjemploSubida.php"
-	enctype="multipart/form-data">
-	<input type="file" name="imagen" id="imagen" /> <input type="submit"
-		name="bAceptar" value="Subir fichero" />
+<form method="post" action=""<?=$_SERVER ['PHP_SELF']?>" enctype="multipart/form-data">
+    NOMBRE:<input type="text" name="nombre" size="10"><br>
+    EDAD:<input type="text" name="edad" size="10"><br>
+    EMAIL:<input type="text" name="correo" size="10"><br>
+    <input type="file" name="imagen" id="imagen" /> 
+    <input type="submit" name="bAceptar" value="Subir fichero" />
 </form>
 </html>
 <?php
 } else {
     // Carpeta para ubicación definitiva. Ruta relativa al fichero actual.
     // Tiene que estar creada esta carpeta, sino da error
-    $dir = "archivos/";
+    $dir = "imagenes/";
     // Tamaño máximo aceptado, si queremos que sea inferior al configurado en php.ini
-    $max_file_size = "51200";
+    $max_file_size = "200000";
     // Creamos una lista de extensiones válidas, por seguridad es lo más válido.
     $extensionesValidas = array(
-        "jpg",
-        "png",
+        "jpeg",
         "gif"
     );
     
