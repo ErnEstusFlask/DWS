@@ -1,76 +1,53 @@
-﻿<?php
-
-function cabecera($titulo) //el archivo actual
-{
-?>
-<!DOCTYPE html>
-		<html lang="es">
-			<head>
-				<title>
-				<?php
-				echo $titulo;
-				?>
-			
-			</title>
-				<meta charset="utf-8"/>
-			</head>
-		<body>
-<?php		
-}
-
-function pie(){
-	echo "</body>
-	</html>";
-}
-
-function sinTildes($frase) {
-
-	$no_permitidas= array ("á","é","í","ó","ú","Á","É","Í","Ó","Ú","à","è","ì","ò","ù","À","È","Ì","Ò","Ù");
-	$permitidas= array ("a","e","i","o","u","A","E","I","O","U","a","e","i","o","u","A","E","I","O","U");
-	$texto = str_replace($no_permitidas, $permitidas ,$frase);
-	return $texto;
-}
-
-function sinEspacios($frase) {
-	$texto = trim(preg_replace('/ +/', ' ', $frase));
-	return $texto;
-}
-
-function recoge($var)
-{
-	if (isset($_REQUEST[$var]))
-		$tmp=strip_tags(sinEspacios($_REQUEST[$var]));
-	else 
-		$tmp= "";
-	
-	return $tmp;
-}
-
-
-function cTexto ($text)
-{
-	if (preg_match("/^[A-Za-zÑñ]+$/", sinTildes($text)))
-		return 1;
-	else 
-		return 0;
-}
-
-
-function cNum ($num)
-{
-	if (preg_match("/^[0-9]+$/", $num))
-		return 1;
-	else
-		return 0;
-}
-function subFicher ($num){
-    
-    $dir = "imagenes/";
-    $max_file_size = "200000";
+<?php
+/*
+ PIDE
+ nombre
+ tamaño
+ carpeta
+ extensiones
+ 
+ 
+ DEVUELVE
+ nombre
+ boolean
+ errores
+ */
+include ('bGeneral.php');
+// Cargamos cabecera html
+cabecera('ejemplo.php');
+// Si no hemos pulsado el botón aceptar => cargamos el formulario
+If (! isset($_REQUEST['bAceptar'])) {
+    ?>
+<html>
+<h1>Subida de ficheros</h1>
+<form method="post" action="EjemploSubida.php"
+	enctype="multipart/form-data">
+	<input type="file" name="imagen" id="imagen" /> <input type="submit"
+		name="bAceptar" value="Subir fichero" />
+</form>
+</html>
+<?php
+} else {
+    // Carpeta para ubicación definitiva. Ruta relativa al fichero actual.
+    // Tiene que estar creada esta carpeta, sino da error
+    $dir = "archivos/";
+    // Tamaño máximo aceptado, si queremos que sea inferior al configurado en php.ini
+    $max_file_size = "51200";
+    // Creamos una lista de extensiones válidas, por seguridad es lo más válido.
     $extensionesValidas = array(
-        "jpeg",
+        "jpg",
+        "png",
         "gif"
     );
+    
+    echo "<pre>";
+    print_r($_REQUEST);
+    print_r($_FILES);
+    echo "</pre>";
+    /*
+     * Comprobamos si hay un error al subirlo. Si ha habido algún error al subir no será necesario
+     * comprobar nada más
+     */
     
     if ($_FILES['imagen']['error'] != 0) {
         echo 'Error: ';
@@ -97,7 +74,7 @@ function subFicher ($num){
             case 7:
                 echo "UPLOAD_ERR_CANT_WRITE<br>";
                 echo "No se ha podido escribir en el disco<br>";
-                
+            
             default:
                 echo 'Error indeterminado.';
         }
@@ -117,31 +94,30 @@ function subFicher ($num){
          */
         $extension = $arrayArchivo['extension'];
         // Comprobamos la extensión del archivo dentro de la lista que hemos definido al principio
-        if ((in_array($extension, $extensionesValidas))==False) {
+        if (! in_array($extension, $extensionesValidas)) {
             $errores[] = "La extensión del archivo no es válida o no se ha subido ningún archivo";
         }
         // Comprobamos el tamaño del archivo
         if ($filesize > $max_file_size) {
-            $errores[] = "La imagen debe de tener un tamaño inferior a 200 kb";
+            $errores[] = "La imagen debe de tener un tamaño inferior a 50 kb";
         }
+        
         // Almacenamos el archivo en ubicación definitiva si no hay errores
-        if (empty($errores)==True) {
-            // Añadimos time() al nombre del fichero, así lo haremos único y si tuviera doble extensión
+        if (empty($errores)) {
+            // Añadimo time() al nombre del fichero, así lo haremos único y si tuviera doble extensión
             // Haríamos inservible la segunda.
             $nombreArchivo = $arrayArchivo['filename'] . time();
             $nombreCompleto = $dir . $nombreArchivo . "." . $extension;
             // Movemos el fichero a la ubicación definitiva
             if (move_uploaded_file($directorioTemp, $nombreCompleto)) {
-                echo "<b>NOMBRE: </b>".$name."<br>";
-                echo "<b>EDAD: </b>".$age."<br>";
-                echo "<b>EMAIL: </b>".$mail."<br>";
-                echo "<br> El fichero \"$nombreArchivo\" ha sido guardado";
+                echo "<br> El fichero \"$nombreCompleto\" ha sido guardado";
             } else {
                 echo "Error: No se puede mover el fichero a su destino";
             }
-        }else{
-            echo $errores[0];
         }
     }
 }
+
 ?>
+</body>
+</html>
