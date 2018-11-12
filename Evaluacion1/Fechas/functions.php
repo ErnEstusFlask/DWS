@@ -1,4 +1,7 @@
 <?php 
+
+//Repasar preg_split()  explode()
+
 /*
  * 1. Realiza una función que acepte una fecha como cadena con el formato dd-mm-aaaa
  * compruebe si la fecha es correcta y nos devuelva la fecha en formato UNIX.
@@ -11,7 +14,7 @@ function ej1($var){
     $mes=intval($var[3].$var[4]);
     $año=intval($var[6].$var[7].$var[8].$var[9]);
     if(checkdate ($mes ,$dia ,$año)=='true'){
-        return mktime(0,0,0,$mes,$dia,$año);
+        return mktime($mes,$dia,$año);
     }else{
         return "Fecha incorrecta";
     }  
@@ -28,7 +31,7 @@ function ej2($var){
     $mes=$var[5].$var[6];
     $año=$var[0].$var[1].$var[2].$var[3];
     if(checkdate ($mes ,$dia ,$año)==true){
-        return mktime(0,0,0,$mes,$dia,$año);
+        return mktime($mes,$dia,$año);
     }else{
         return "Fecha incorrecta";
     }
@@ -39,12 +42,15 @@ function ej2($var){
  * la función.
  */
 function ej3($var,$format){
-    if($format==1){
-        return date("d-m-Y",$var);
+    if(is_int($var)){
+        if($format==1){
+            return date("d-m-Y",$var);
+        }
+        else if($format==2){
+            return date("Y-m-d",$var);
+        }
     }
-    else if($format==2){
-        return date("Y-m-d",$var);
-    }
+    
 }
 /*
  * 4. Realiza una función que nos devuelva el nº de días que han pasado entre dos fechas.
@@ -60,8 +66,6 @@ function ej4($fech1,$fech2){
     }else{
         return "Fecha incorrecta";
     }
-    
-    
     $dia2=intval($fech2[0].$fech2[1]);
     $mes2=intval($fech2[3].$fech2[4]);
     $año2=intval($fech2[6].$fech2[7].$fech2[8].$fech2[9]);
@@ -72,8 +76,30 @@ function ej4($fech1,$fech2){
     }
     $dif=$fecha1-$fecha2;
     
-    $diffD= date("j",$dif);
-    return $diffD-1;
+    $diffD= round($dif/60/60/24);
+    return $diffD;
 }
-
+/*
+ * 5. Realiza una función que muestre una imagen diferente según la estación del año. Para
+ * facilitarlo podemos tener en cuenta como primavera (marzo, abril, mayo) y así
+ * sucesivamente.
+ */
+function ej5(){
+    $actT=time();
+    $actM=date("n",$actT);
+    
+    if($actM=="12"||$actM=="1"||$actM=="2"){
+        $invierno= "img/invierno.jpg";
+        return $invierno;
+    }else if($actM=="3"||$actM=="4"||$actM=="5"){
+        $primavera= "img/primavera.jpg";
+        return $primavera;
+    }else if($actM=="6"||$actM=="7"||$actM=="8"){
+        $verano= "img/verano.jpg";
+        return $verano;
+    }else if($actM=="9"||$actM=="10"||$actM=="11"){
+        $otoño= "img/otoño.jpg";
+        return $otoño;
+    }
+}
 ?>
