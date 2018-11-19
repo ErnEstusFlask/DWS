@@ -4,11 +4,20 @@ include ('functions.php');
 
 cabecera($_SERVER['PHP_SELF']);
 
-echo "Ej1: <br>";
-$dirEj1="pruebas";
-$arrayDir= devuelveDir($dirEj1);
+echo "Fun1: <br>";
+$dirFun1="pruebas";
+$arrayDir= devuelveDir($dirFun1);
+for($i=0;$i<count($arrayDir);$i++){
+    echo $arrayDir[$i]."<br>";
+}
 echo "<br>";
-echo $arrayDir;
+
+echo "Fun2: <br>";
+$dirFun2="pruebas";
+$arrayDir= devuelveDirSubdir($dirFun2);
+for($i=0;$i<count($arrayDir);$i++){
+    echo $arrayDir[$i]."<br>";
+}
 echo "<br><br>";
 
 ?>
