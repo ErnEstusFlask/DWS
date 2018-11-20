@@ -6,50 +6,69 @@
 function devuelveDir($ruta){
     $directorio =opendir($ruta);
     $arrayFiles=array();
-    $cont=0;
     while (false !==($archivo = readdir($directorio))) {
         $tempFilNam= $ruta."\\".$archivo;
         if (is_file($tempFilNam)) {
-            $arrayFiles[$cont]=$archivo;
-            $cont++;
+            array_push($arrayFiles,$archivo);
         }
     }
+    closedir($directorio);
     return $arrayFiles;
 }
 /*
- * Realiza una función
- * devuelveDirSubdir que recorre un directorio y sus subdirectorios devuelve el
- * nombre de los ficheros que contienen cada uno de ellos. Devolvemos el
+ * Realiza una función devuelveDirSubdir que recorre un directorio y sus subdirectorios
+ * devuelve el nombre de los ficheros que contienen cada uno de ellos. Devolvemos el
  * nombre con la ruta completa. Devolvemos array.
  */
 
 function devuelveDirSubdir($ruta){
     $directorio =opendir($ruta);
     $arrayFiles=array();
-    $cont=0;
     while ($archivo = readdir($directorio)) {
         $tempFilNam= $ruta."\\".$archivo;
-        if (is_file($tempFilNam)) {
-            $arrayFiles[$cont]=$archivo;
-            $cont++;
-        }if (is_dir($tempFilNam)) {
-            if(false==strpos($tempFilNam, ".")){
-                $subDir =opendir($tempFilNam);
-                $subRuta = $tempFilNam;
-                while ($archivo = readdir($subDir)) {
-                    $tempFilNam= $subRuta."\\".$archivo;
-                    if (is_file($tempFilNam)) {
-                        $arrayFiles[$cont]=$archivo;
-                    }if (is_dir($tempFilNam)) {
-                        if(false==strpos($tempFilNam, ".")){
-                            $arrayFiles[$cont]=$archivo;
-                            $cont++;
-                        }
-                    }
-                }
-            }
+        if ($archivo!="." && $archivo!=".." && is_dir($tempFilNam)){
+            $arrayFiles = array_merge(devuelveDirSubdir($tempFilNam),$arrayFiles);
+        }elseif(is_file($tempFilNam)){
+            $arrayFiles[] = $tempFilNam;
         }
     }
+    closedir($directorio);
     return $arrayFiles;
+}
+/*
+ * Realiza una función devuelveDirSubdirM que recorre un directorio y sus subdirectorios
+ * devolviendo los nombres de los ficheros que contienen cada uno de ellos, discriminando
+ * donde está contenido cada uno de ellos. Devuelve array multidimensional.
+ */
+
+function devuelveDirSubdirM($ruta){
+    $directorio =opendir($ruta);
+    $arrayFiles=array();
+    while ($archivo = readdir($directorio)) {
+        $tempFilNam= $ruta."\\".$archivo;
+        if ($archivo!="." && $archivo!=".." && is_dir($tempFilNam)){
+            $arrayFiles[$archivo]= devuelveDirSubdirM($tempFilNam);
+        }elseif(is_file($tempFilNam)){
+            $arrayFiles[]= $archivo;
+        }
+    }
+    closedir($directorio);
+    return $arrayFiles;
+}
+/*
+ * Realiza una función que muestre el contenido de un array multidimensional.
+ */
+
+function MostrarArrayMult($arrayDir){
+    for($i = 0; $i < count($arrayDir); $i++) {
+        $keys = array_keys($arrayDir);
+        if(is_array($arrayDir[$keys[$i]])){
+            foreach($arrayDir[$keys[$i]] as $key => $value) {
+                echo $key . " : " . $value . "<br>";
+            }
+        }else{
+            echo $arrayDir[$i]."<br>";
+        }
+    }
 }
 ?>

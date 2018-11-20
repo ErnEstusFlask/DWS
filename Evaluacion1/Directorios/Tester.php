@@ -18,6 +18,11 @@ $arrayDir= devuelveDirSubdir($dirFun2);
 for($i=0;$i<count($arrayDir);$i++){
     echo $arrayDir[$i]."<br>";
 }
-echo "<br><br>";
+echo "<br>";
+
+echo "Fun3: <br>";
+$dirFun3="pruebas";
+$arrayDir= devuelveDirSubdirM($dirFun3);
+MostrarArrayMult($arrayDir);
 
 ?>
