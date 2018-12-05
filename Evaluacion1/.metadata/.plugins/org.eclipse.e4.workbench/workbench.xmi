@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ASCII"?>
 <application:Application xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:advanced="http://www.eclipse.org/ui/2010/UIModel/application/ui/advanced" xmlns:application="http://www.eclipse.org/ui/2010/UIModel/application" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_4WdeQNknEei45LTvAFXVGA" elementId="org.eclipse.e4.legacy.ide.application" contributorURI="platform:/plugin/org.eclipse.platform" selectedElement="_4WdeQdknEei45LTvAFXVGA" bindingContexts="_4Wf6gNknEei45LTvAFXVGA">
-  <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;workbench>&#xD;&#xA;&lt;mruList>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.ide.FileStoreEditorInputFactory&quot; id=&quot;org.eclipse.php.editor&quot; name=&quot;Formuulario.php&quot; tooltip=&quot;G:\2DAW\DWS\RepositoriosEclipse\DWS_Evaluacion1\Evaluacion1\ExpresionesRegulares\Formuulario.php&quot;>&#xD;&#xA;&lt;persistable uri=&quot;file:/G:/2DAW/DWS/RepositoriosEclipse/DWS_Evaluacion1/Evaluacion1/ExpresionesRegulares/Formuulario.php&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;/mruList>&#xD;&#xA;&lt;/workbench>"/>
+  <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;workbench>&#xD;&#xA;&lt;mruList>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.ide.FileStoreEditorInputFactory&quot; id=&quot;org.eclipse.php.editor&quot; name=&quot;bGeneral.php&quot; tooltip=&quot;C:\Users\Usuario_7K\Desktop\practicaexamen\bGeneral.php&quot;>&#xD;&#xA;&lt;persistable uri=&quot;file:/C:/Users/Usuario_7K/Desktop/practicaexamen/bGeneral.php&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.ide.FileStoreEditorInputFactory&quot; id=&quot;org.eclipse.php.editor&quot; name=&quot;functions.php&quot; tooltip=&quot;C:\Users\Usuario_7K\Desktop\practicaexamen\functions.php&quot;>&#xD;&#xA;&lt;persistable uri=&quot;file:/C:/Users/Usuario_7K/Desktop/practicaexamen/functions.php&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.ide.FileStoreEditorInputFactory&quot; id=&quot;org.eclipse.php.editor&quot; name=&quot;procesado.php&quot; tooltip=&quot;C:\Users\Usuario_7K\Desktop\practicaexamen\procesado.php&quot;>&#xD;&#xA;&lt;persistable uri=&quot;file:/C:/Users/Usuario_7K/Desktop/practicaexamen/procesado.php&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.ide.FileStoreEditorInputFactory&quot; id=&quot;org.eclipse.php.editor&quot; name=&quot;evaluable.php&quot; tooltip=&quot;C:\Users\Usuario_7K\Desktop\practicaexamen\evaluable.php&quot;>&#xD;&#xA;&lt;persistable uri=&quot;file:/C:/Users/Usuario_7K/Desktop/practicaexamen/evaluable.php&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.ide.FileStoreEditorInputFactory&quot; id=&quot;org.eclipse.php.editor&quot; name=&quot;Formuulario.php&quot; tooltip=&quot;G:\2DAW\DWS\RepositoriosEclipse\DWS_Evaluacion1\Evaluacion1\ExpresionesRegulares\Formuulario.php&quot;>&#xD;&#xA;&lt;persistable uri=&quot;file:/G:/2DAW/DWS/RepositoriosEclipse/DWS_Evaluacion1/Evaluacion1/ExpresionesRegulares/Formuulario.php&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;/mruList>&#xD;&#xA;&lt;/workbench>"/>
   <tags>activeSchemeId:org.eclipse.ui.defaultAcceleratorConfiguration</tags>
   <tags>ModelMigrationProcessor.001</tags>
   <children xsi:type="basic:TrimmedWindow" xmi:id="_4WdeQdknEei45LTvAFXVGA" elementId="IDEWindow" contributorURI="platform:/plugin/org.eclipse.platform" selectedElement="_4sDTwNknEei45LTvAFXVGA" label="%trimmedwindow.label.eclipseSDK" x="182" y="182" width="1024" height="768">
@@ -168,24 +168,42 @@
       <tags>categoryTag:Help</tags>
     </sharedElements>
     <sharedElements xsi:type="advanced:Area" xmi:id="_49sdYNknEei45LTvAFXVGA" elementId="org.eclipse.ui.editorss" selectedElement="_49sdYdknEei45LTvAFXVGA">
-      <children xsi:type="basic:PartStack" xmi:id="_49sdYdknEei45LTvAFXVGA" elementId="org.eclipse.e4.primaryDataStack" selectedElement="_R0pv4NkoEei45LTvAFXVGA">
+      <children xsi:type="basic:PartStack" xmi:id="_49sdYdknEei45LTvAFXVGA" elementId="org.eclipse.e4.primaryDataStack" selectedElement="_OSWu0PGHEeiQIYDykpoIHA">
         <tags>org.eclipse.e4.primaryDataStack</tags>
         <tags>EditorStack</tags>
         <tags>active</tags>
-        <children xsi:type="basic:Part" xmi:id="_R0pv4NkoEei45LTvAFXVGA" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="Formuulario.php" iconURI="platform:/plugin/org.eclipse.php.ui/icons/full/obj16/phpfile.png" closeable="true">
-          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.php.editor&quot; name=&quot;Formuulario.php&quot; partName=&quot;Formuulario.php&quot; title=&quot;Formuulario.php&quot; tooltip=&quot;G:\2DAW\DWS\RepositoriosEclipse\DWS_Evaluacion1\Evaluacion1\ExpresionesRegulares\Formuulario.php&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.ide.FileStoreEditorInputFactory&quot; uri=&quot;file:/G:/2DAW/DWS/RepositoriosEclipse/DWS_Evaluacion1/Evaluacion1/ExpresionesRegulares/Formuulario.php&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;0&quot; selectionTopPixel=&quot;0&quot;/>&#xD;&#xA;&lt;/editor>"/>
+        <children xsi:type="basic:Part" xmi:id="_OSWu0PGHEeiQIYDykpoIHA" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="evaluable.php" iconURI="platform:/plugin/org.eclipse.php.ui/icons/full/obj16/phpfile.png" closeable="true">
+          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.php.editor&quot; name=&quot;evaluable.php&quot; partName=&quot;evaluable.php&quot; title=&quot;evaluable.php&quot; tooltip=&quot;C:\Users\Usuario_7K\Desktop\practicaexamen\evaluable.php&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.ide.FileStoreEditorInputFactory&quot; uri=&quot;file:/C:/Users/Usuario_7K/Desktop/practicaexamen/evaluable.php&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;967&quot; selectionTopPixel=&quot;315&quot;/>&#xD;&#xA;&lt;/editor>"/>
           <tags>Editor</tags>
           <tags>org.eclipse.php.editor</tags>
           <tags>removeOnHide</tags>
           <tags>active</tags>
           <tags>activeOnClose</tags>
         </children>
+        <children xsi:type="basic:Part" xmi:id="_Ot7QgPGHEeiQIYDykpoIHA" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="procesado.php" iconURI="platform:/plugin/org.eclipse.php.ui/icons/full/obj16/phpfile.png" closeable="true">
+          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.php.editor&quot; name=&quot;procesado.php&quot; partName=&quot;procesado.php&quot; title=&quot;procesado.php&quot; tooltip=&quot;C:\Users\Usuario_7K\Desktop\practicaexamen\procesado.php&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.ide.FileStoreEditorInputFactory&quot; uri=&quot;file:/C:/Users/Usuario_7K/Desktop/practicaexamen/procesado.php&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;5&quot; selectionTopPixel=&quot;0&quot;/>&#xD;&#xA;&lt;/editor>"/>
+          <tags>Editor</tags>
+          <tags>org.eclipse.php.editor</tags>
+          <tags>removeOnHide</tags>
+        </children>
+        <children xsi:type="basic:Part" xmi:id="_O_Eq4PGHEeiQIYDykpoIHA" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="functions.php" iconURI="platform:/plugin/org.eclipse.php.ui/icons/full/obj16/phpfile.png" closeable="true">
+          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.php.editor&quot; name=&quot;functions.php&quot; partName=&quot;functions.php&quot; title=&quot;functions.php&quot; tooltip=&quot;C:\Users\Usuario_7K\Desktop\practicaexamen\functions.php&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.ide.FileStoreEditorInputFactory&quot; uri=&quot;file:/C:/Users/Usuario_7K/Desktop/practicaexamen/functions.php&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;375&quot; selectionTopPixel=&quot;0&quot;/>&#xD;&#xA;&lt;/editor>"/>
+          <tags>Editor</tags>
+          <tags>org.eclipse.php.editor</tags>
+          <tags>removeOnHide</tags>
+        </children>
+        <children xsi:type="basic:Part" xmi:id="_P5_bAPGHEeiQIYDykpoIHA" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="bGeneral.php" iconURI="platform:/plugin/org.eclipse.php.ui/icons/full/obj16/phpfile.png" closeable="true">
+          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.php.editor&quot; name=&quot;bGeneral.php&quot; partName=&quot;bGeneral.php&quot; title=&quot;bGeneral.php&quot; tooltip=&quot;C:\Users\Usuario_7K\Desktop\practicaexamen\bGeneral.php&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.ide.FileStoreEditorInputFactory&quot; uri=&quot;file:/C:/Users/Usuario_7K/Desktop/practicaexamen/bGeneral.php&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;3120&quot; selectionTopPixel=&quot;1492&quot;/>&#xD;&#xA;&lt;/editor>"/>
+          <tags>Editor</tags>
+          <tags>org.eclipse.php.editor</tags>
+          <tags>removeOnHide</tags>
+        </children>
       </children>
     </sharedElements>
     <sharedElements xsi:type="basic:Part" xmi:id="_494qoNknEei45LTvAFXVGA" elementId="org.eclipse.ui.navigator.ProjectExplorer" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" label="Project Explorer" iconURI="platform:/plugin/org.eclipse.ui.navigator.resources/icons/full/eview16/resource_persp.png" tooltip="" closeable="true">
       <persistedState key="originalCompatibilityViewClass" value="org.eclipse.ui.navigator.resources.ProjectExplorer"/>
       <persistedState key="originalCompatibilityViewBundle" value="org.eclipse.ui.navigator.resources"/>
-      <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;view CommonNavigator.LINKING_ENABLED=&quot;0&quot; org.eclipse.ui.navigator.resources.workingSets.showTopLevelWorkingSets=&quot;0&quot;>&#xD;&#xA;&lt;lastRecentlyUsedFilters/>&#xD;&#xA;&lt;/view>"/>
+      <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;view CommonNavigator.LINKING_ENABLED=&quot;0&quot; currentWorkingSetName=&quot;Aggregate for window 1540562599890&quot; org.eclipse.ui.navigator.resources.workingSets.showTopLevelWorkingSets=&quot;0&quot;>&#xD;&#xA;&lt;lastRecentlyUsedFilters/>&#xD;&#xA;&lt;/view>"/>
       <tags>View</tags>
       <tags>categoryTag:General</tags>
       <menus xmi:id="_4_In0NknEei45LTvAFXVGA" elementId="org.eclipse.ui.navigator.ProjectExplorer">
@@ -279,7 +297,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_4vBIMNknEei45LTvAFXVGA" elementId="org.eclipse.ui.workbench.file">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_4vTcENknEei45LTvAFXVGA" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" enabled="false" command="_4XcVttknEei45LTvAFXVGA"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_O22YcPGGEeiQIYDykpoIHA" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" command="_4XcVttknEei45LTvAFXVGA"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_4vBIMdknEei45LTvAFXVGA" elementId="group.edit" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -307,7 +325,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_4vDkcNknEei45LTvAFXVGA" elementId="org.eclipse.ui.workbench.navigate">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_4vVRQNknEei45LTvAFXVGA" elementId="org.eclipse.ui.window.pinEditor" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_4XbvDNknEei45LTvAFXVGA"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_O22YffGGEeiQIYDykpoIHA" elementId="org.eclipse.ui.window.pinEditor" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_4XbvDNknEei45LTvAFXVGA"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_4vIc8NknEei45LTvAFXVGA" elementId="group.editor" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -2410,7 +2428,7 @@
   <addons xmi:id="_4WghltknEei45LTvAFXVGA" elementId="MinMax Addon" contributorURI="platform:/plugin/org.eclipse.platform" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.minmax.MinMaxAddon"/>
   <addons xmi:id="_4Wghl9knEei45LTvAFXVGA" elementId="org.eclipse.ui.workbench.addon.0" contributorURI="platform:/plugin/org.eclipse.platform" contributionURI="bundleclass://org.eclipse.e4.ui.workbench/org.eclipse.e4.ui.internal.workbench.addons.HandlerProcessingAddon"/>
   <addons xmi:id="_4WpEcNknEei45LTvAFXVGA" elementId="SplitterAddon" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.splitteraddon.SplitterAddon"/>
-  <addons xmi:id="_IYS0IKimEeS11vbz3f9ezw" elementId="org.eclipse.ui.ide.addon.0" contributorURI="platform:/plugin/org.eclipse.ui.ide" contributionURI="bundleclass://org.eclipse.ui.ide/org.eclipse.ui.internal.ide.addons.SaveAllDirtyPartsAddon"/>
+  <addons xmi:id="_Ob6I4fGGEeiQIYDykpoIHA" elementId="org.eclipse.ui.ide.addon.0" contributionURI="bundleclass://org.eclipse.ui.ide/org.eclipse.ui.internal.ide.addons.SaveAllDirtyPartsAddon"/>
   <addons xmi:id="_dz0JgGOlEeSMMaPQU2nlzw" elementId="org.eclipse.ui.ide.application.addon.0" contributorURI="platform:/plugin/org.eclipse.ui.ide.application" contributionURI="bundleclass://org.eclipse.ui.ide.application/org.eclipse.ui.internal.ide.application.addons.ModelCleanupAddon"/>
   <categories xmi:id="_4XKB0NknEei45LTvAFXVGA" elementId="org.eclipse.team.ui.category.team" name="Team" description="Actions that apply when working with a Team"/>
   <categories xmi:id="_4XKB0dknEei45LTvAFXVGA" elementId="org.eclipse.ui.category.views" name="Views" description="Commands for opening views"/>
