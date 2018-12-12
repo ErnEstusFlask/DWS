@@ -1,0 +1,7 @@
+Call to undefined function execute()0.27694300 1544195857
+Call to undefined function execute()0.11771600 1544196343
+Call to a member function fetch() on boolean0.09579400 1544196928
+Call to a member function fetch() on boolean0.09408900 1544196966
+Call to a member function fetch() on boolean0.14280300 1544196999
+Call to a member function fetch() on boolean0.37211100 1544197096
+Call to a member function fetch() on boolean0.76181200 1544197137
