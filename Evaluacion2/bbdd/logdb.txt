@@ -1,0 +1,1 @@
+SQLSTATE[HY000] [1049] Unknown database 'curso_phpcurso_php'0.60081100 1544635742
