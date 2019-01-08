@@ -14,7 +14,8 @@ $map = array(
 'insertar' => array('controller' =>'Controller', 'action' =>'insertar'),
 'buscar' => array('controller' =>'Controller', 'action' =>'buscarPorNombre'),
 'ver' => array('controller' =>'Controller', 'action' =>'ver'),
-'buscarAlimentosPorEnergia' => array('controller' =>'Controller', 'action' =>'buscarPorEnergia')
+'buscarMensajes' => array('controller' =>'Controller', 'action' =>'buscarMensajes'),
+'enviar' => array('controller' =>'Controller', 'action' =>'enviarMensaje')
 );
 
 // Parseo de la ruta

@@ -51,11 +51,11 @@ class Model extends PDO
             echo "<p>Error: " . $e->getMessage();
         }
     }
-    /*
-    public function buscarAlimentosPorEnergia($energia)
+    
+    public function buscarMensaje($energia)
     {
         try {
-            $consulta = "select * from alimentos where energia like :energia order by energia desc";
+            $consulta = "select * from mesnaje where energia like :energia order by energia desc";
             
             $result = $this->conexion->prepare($consulta);
             $result->bindParam(':energia', $energia);
@@ -67,11 +67,43 @@ class Model extends PDO
             echo "<p>Error: " . $e->getMessage();
         }
     }
-    */
+    
     public function dameUsuario($id)
     {
         try {
             $consulta = "select * from usuario where id_us=:id";
+            
+            $result = $this->conexion->prepare($consulta);
+            $result->bindParam(':id', $id);
+            $result->execute();
+            return $result->fetch();
+            
+        } catch (PDOException $e) {
+            
+            echo "<p>Error: " . $e->getMessage();
+        }
+    }
+    
+    public function dameMensajeR($id)
+    {
+        try {
+            $consulta = "select * from mensaje where id_rec=:id";
+            
+            $result = $this->conexion->prepare($consulta);
+            $result->bindParam(':id', $id);
+            $result->execute();
+            return $result->fetch();
+            
+        } catch (PDOException $e) {
+            
+            echo "<p>Error: " . $e->getMessage();
+        }
+    }
+    
+    public function dameMensajeS($id)
+    {
+        try {
+            $consulta = "select * from mensaje where id_send=:id";
             
             $result = $this->conexion->prepare($consulta);
             $result->bindParam(':id', $id);
@@ -97,6 +129,18 @@ class Model extends PDO
         return $result;
     }
 
+    public function enviarMensaje($send, $rec, $subj, $mensaje)
+    {
+        $consulta = "insert into mensaje (id_send, id_rec, subject, mensaje) values (?, ?, ?, ?)";
+        $result = $this->conexion->prepare($consulta);
+        $result->bindParam(1, $send);
+        $result->bindParam(2, $rec);
+        $result->bindParam(3, $subj);
+        $result->bindParam(4, $mensaje);
+        $result->execute();
+        
+        return $result;
+    }
     
 }
 ?>

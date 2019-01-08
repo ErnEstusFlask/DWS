@@ -13,12 +13,12 @@
 
 <div id="menu">
 <hr/>
-<a href="index.php?ctl=inicio">inicio</a> |
-<a href="index.php?ctl=listar">ver usuarios</a> |
-<a href="index.php?ctl=insertar">registrarse</a> |
-<a href="index.php?ctl=buscar">buscar por nombre</a> |
-<a href="index.php?ctl=buscarAlimentosPorEnergia">buscar por energia</a> |
-<a href="index.php?ctl=buscarAlimentosCombinada">búsqueda combinada</a>
+<a href="index.php?ctl=inicio">Inicio</a> |
+<a href="index.php?ctl=listar">Ver Usuarios</a> |
+<a href="index.php?ctl=insertar">Registrarse</a> |
+<a href="index.php?ctl=enviar">Enviar Mensaje</a> |
+<a href="index.php?ctl=buscar">Buscar Usuario</a> |
+<a href="index.php?ctl=buscarMensajes">Buscar Mensajes</a>
 <hr/>
 </div>
 

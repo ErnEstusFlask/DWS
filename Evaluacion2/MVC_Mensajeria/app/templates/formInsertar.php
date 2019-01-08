@@ -18,7 +18,7 @@
 </tr>
 
 </table>
-<input type="submit" value="insertar" name="insertar" />
+<input type="submit" value="Registrar" name="insertar" />
 </form>
 
 <?php $contenido = ob_get_clean() ?>
