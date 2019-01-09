@@ -1,17 +1,13 @@
 <?php ob_start() ?>
 
-<form name="formBusqueda" action="index.php?ctl=buscarMensajes" method="POST">
+<form name="formBusqueda" action="index.php?ctl=buscarMensajesSend" method="POST">
 
 <table>
 <tr>
-<td>Destinatario:</td>
-<td><input type="text" name="rec" value="<?php echo $params['rec']?>">(puedes utilizar '%' como comodín)</td>
-</tr>
-<tr>
-<td>Sender:</td>
+<td>Emisor:</td>
 <td><input type="text" name="send" value="<?php echo $params['send']?>">(puedes utilizar '%' como comodín)</td>
 </tr>
-<td><input type="submit" value="buscarMensajes" name="Buscar"></td>
+<td><input type="submit" value="Buscar"></td>
 </tr>
 </table>
 
@@ -28,8 +24,8 @@
 </tr>
 <?php foreach ($params['resultado'] as $mensaje) : ?>
 <tr>
-<td><a href="index.php?ctl=verM&idr=<?php echo $mensaje['id_rec'] ?>&ids=<?php echo $mensaje['id_send'] ?>">
-<?php echo $mensaje['id_rec'] ?></a></td>
+<td><a href="index.php?ctl=verM&id_men=<?php echo $mensaje['id_men'] ?>">
+<?php echo $mensaje['id_send'] ?></a></td>
 <td><?php echo $mensaje['subject'] ?></td>
 <td><?php echo $mensaje['mensaje'] ?></td>
 </tr>

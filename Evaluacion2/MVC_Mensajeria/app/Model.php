@@ -35,6 +35,20 @@ class Model extends PDO
             echo "<p>Error: " . $e->getMessage();
         }
     }
+    
+    public function dameMensajes()
+    {
+        try {
+            
+            $consulta = "select * from mensaje order by id_men desc";
+            $result = $this->conexion->query($consulta);
+            return $result->fetchAll();
+            
+        } catch (PDOException $e) {
+            
+            echo "<p>Error: " . $e->getMessage();
+        }
+    }
 
     public function buscarUsuariosPorNombre($nombre)
     {
@@ -52,13 +66,29 @@ class Model extends PDO
         }
     }
     
-    public function buscarMensaje($energia)
+    public function buscarMensajeRec($rec)
     {
         try {
-            $consulta = "select * from mesnaje where energia like :energia order by energia desc";
+            $consulta = "select * from mensaje where id_rec like :idr order by id_men desc";
             
             $result = $this->conexion->prepare($consulta);
-            $result->bindParam(':energia', $energia);
+            $result->bindParam(':idr', $rec);
+            $result->execute();
+            
+            return $result->fetchAll();
+        } catch (PDOException $e) {
+            
+            echo "<p>Error: " . $e->getMessage();
+        }
+    }
+    
+    public function buscarMensajeSend($send)
+    {
+        try {
+            $consulta = "select * from mensaje where id_send like :ids order by id_men desc";
+            
+            $result = $this->conexion->prepare($consulta);
+            $result->bindParam(':ids', $send);
             $result->execute();
             
             return $result->fetchAll();
@@ -84,10 +114,10 @@ class Model extends PDO
         }
     }
     
-    public function dameMensajeR($id)
+    public function dameMensaje($id)
     {
         try {
-            $consulta = "select * from mensaje where id_rec=:id";
+            $consulta = "select * from mensaje where id_men=:id";
             
             $result = $this->conexion->prepare($consulta);
             $result->bindParam(':id', $id);
@@ -99,22 +129,7 @@ class Model extends PDO
             echo "<p>Error: " . $e->getMessage();
         }
     }
-    
-    public function dameMensajeS($id)
-    {
-        try {
-            $consulta = "select * from mensaje where id_send=:id";
-            
-            $result = $this->conexion->prepare($consulta);
-            $result->bindParam(':id', $id);
-            $result->execute();
-            return $result->fetch();
-            
-        } catch (PDOException $e) {
-            
-            echo "<p>Error: " . $e->getMessage();
-        }
-    }
+   
     
     //añadir validador para no repetir usuario/correo
     public function insertarUsuario($name, $pass, $mail)

@@ -11,10 +11,13 @@ require_once __DIR__ . '/../app/Controller.php';
 $map = array(
 'inicio' => array('controller' =>'Controller', 'action' =>'inicio'),
 'listar' => array('controller' =>'Controller', 'action' =>'listar'),
+'listarM' => array('controller' =>'Controller', 'action' =>'listarM'),
 'insertar' => array('controller' =>'Controller', 'action' =>'insertar'),
 'buscar' => array('controller' =>'Controller', 'action' =>'buscarPorNombre'),
 'ver' => array('controller' =>'Controller', 'action' =>'ver'),
-'buscarMensajes' => array('controller' =>'Controller', 'action' =>'buscarMensajes'),
+'verM' => array('controller' =>'Controller', 'action' =>'verM'),
+'buscarMensajesRec' => array('controller' =>'Controller', 'action' =>'buscarMensajesRec'),
+'buscarMensajesSend' => array('controller' =>'Controller', 'action' =>'buscarMensajesSend'),
 'enviar' => array('controller' =>'Controller', 'action' =>'enviarMensaje')
 );
 

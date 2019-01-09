@@ -15,10 +15,12 @@
 <hr/>
 <a href="index.php?ctl=inicio">Inicio</a> |
 <a href="index.php?ctl=listar">Ver Usuarios</a> |
+<a href="index.php?ctl=listarM">Bandeja de entrada</a> |
 <a href="index.php?ctl=insertar">Registrarse</a> |
 <a href="index.php?ctl=enviar">Enviar Mensaje</a> |
 <a href="index.php?ctl=buscar">Buscar Usuario</a> |
-<a href="index.php?ctl=buscarMensajes">Buscar Mensajes</a>
+<a href="index.php?ctl=buscarMensajesSend">Buscar Mensajes por Emisor</a>
+<a href="index.php?ctl=buscarMensajesRec">Buscar Mensajes por Destinatario</a>
 <hr/>
 </div>
 

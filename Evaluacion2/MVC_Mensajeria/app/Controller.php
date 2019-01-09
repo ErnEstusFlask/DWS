@@ -25,6 +25,17 @@ class Controller
 
 		require __DIR__ . '/templates/mostrarUsuarios.php';
 	}
+	
+	public function listarM()
+	{
+	    $m = new Model();
+	    
+	    $params = array(
+	        'mensaje' => $m->dameMensajes(),
+	    );
+	    
+	    require __DIR__ . '/templates/mostrarMensajes.php';
+	}
 
 	public function insertar()
 	{
@@ -128,10 +139,29 @@ class Controller
 		require __DIR__ . '/templates/buscarPorNombre.php';
 	}
 	
-	public function buscarMensajes()
+	public function buscarMensajesRec()
 	{
 	    $params = array(
 	        'rec' => '',
+	        'resultado' => array(),
+	    );
+	    
+	    $m = new Model();
+	    
+	    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+	        
+	        	        
+	        $rec=recoge("rec");
+	        $params['rec'] = $rec;
+	        $params['resultado'] = $m->buscarMensajeRec($rec);
+	    }
+	    
+	    require __DIR__ . '/templates/buscarMensajesRec.php';
+	}
+	
+	public function buscarMensajesSend()
+	{
+	    $params = array(
 	        'send' => '',
 	        'resultado' => array(),
 	    );
@@ -139,12 +169,13 @@ class Controller
 	    $m = new Model();
 	    
 	    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-	        $energia=recoge("energia");
-	        $params['energia'] = $energia;
-	        $params['resultado'] = $m->buscarMensaje($energia);
+	        
+	        $send=recoge("send");
+	        $params['send'] = $send;
+	        $params['resultado'] = $m->buscarMensajeSend($send);
 	    }
 	    
-	    require __DIR__ . '/templates/buscarMensajes.php';
+	    require __DIR__ . '/templates/buscarMensajesSend.php';
 	}
     
 	public function ver()
@@ -182,49 +213,27 @@ class Controller
 	
 	public function verM()
 	{
-	    if (!isset($_GET['idr'])&&!isset($_GET['ids'])) {
+	    if (!isset($_GET['id_men'])) {
 	        $params = array(
 	            'mensaje' => 'No has seleccionado ningun elemento que mostrar',
 	            'fecha' => date('d-m-y'),
 	        );
 	        require __DIR__ . '/templates/inicio.php';
 	        
-	    }else if(isset($_GET['idr'])){
+	    }else{
 	        
-	        $idr = recoge('idr');
+	        $id = recoge('id_men');
 	        
 	        $m = new Model();
 	        
-	        $mensaje = $m->dameMensajeR($idr);
+	        $mensaje = $m->dameMensaje($id);
 	        
 	        $params = $mensaje;
 	        //Si la consulta no ha devuelto resultados volvemos a la página de inicio
 	        if (empty($params))
 	        {
 	            $params = array(
-	                'mensaje' => 'No hay usuario que mostar',
-	                'fecha' => date('d-m-y'),
-	            );
-	            require __DIR__ . '/templates/inicio.php';
-	        }
-	        else
-	            
-	            require __DIR__ . '/templates/verMensaje.php';
-	        
-	    }else if(isset($_GET['ids'])){
-	        
-	        $ids = recoge('ids');
-	        
-	        $m = new Model();
-	        
-	        $mensaje = $m->dameMensajeS($ids);
-	        
-	        $params = $mensaje;
-	        //Si la consulta no ha devuelto resultados volvemos a la página de inicio
-	        if (empty($params))
-	        {
-	            $params = array(
-	                'mensaje' => 'No hay usuario que mostar',
+	                'mensaje' => 'No hay mensaje que mostar',
 	                'fecha' => date('d-m-y'),
 	            );
 	            require __DIR__ . '/templates/inicio.php';

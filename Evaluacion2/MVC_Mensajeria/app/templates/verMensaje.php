@@ -5,8 +5,7 @@
 
 <tr>
 <td>Descripcion:</td>
-<td><?php echo $usuario['mensaje'] ?></td>
-
+<td><?php echo $mensaje['mensaje'] ?></td>
 </tr>
 </table>
 
