@@ -9,7 +9,7 @@
     <tr>
     <td>Destinatario:</td>
     <td><input type="text" name="rec" value="<?php echo $params['rec']?>"></td>
-    <td>Sender:</td>
+    <td>Emisor:</td>
     <td><input type="text" name="send" value="<?php echo $params['send']?>"></td>
     </tr>
     <tr>
@@ -17,7 +17,7 @@
     <td><input type="text" name="subject" value="<?php echo $params['subject']?>"></td>
     </tr>
     <tr>
-    <td colspan="4"><textarea rows="4" cols="50" name="mensajeria" value="<?php echo $params['mensaje']?>"></textarea></td>
+    <td colspan="4"><textarea rows="8" cols="50" name="mensajeria" value="<?php echo $params['mensaje']?>"></textarea></td>
     </tr>
     <tr>
     <td><input type="submit" value="Enviar" name="enviar"></td>

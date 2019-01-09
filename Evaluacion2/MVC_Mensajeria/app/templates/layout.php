@@ -1,7 +1,6 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<title>Información Alimentos</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" type="text/css" href="<?php echo 'css/'.Config::$mvc_vis_css ?>" />
 
@@ -14,6 +13,7 @@
 <div id="menu">
 <hr/>
 <a href="index.php?ctl=inicio">Inicio</a> |
+<a href="index.php?ctl=login">Login</a> |
 <a href="index.php?ctl=listar">Ver Usuarios</a> |
 <a href="index.php?ctl=listarM">Bandeja de entrada</a> |
 <a href="index.php?ctl=insertar">Registrarse</a> |
@@ -30,7 +30,7 @@
 
 <div id="pie">
 <hr/>
-<div align="center">- pie de página -</div>
+<div align="center">- servicio mensajeria -</div>
 </div>
 </body>
 </html>
