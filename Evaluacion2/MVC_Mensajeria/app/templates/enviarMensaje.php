@@ -1,4 +1,6 @@
-<?php ob_start() ?>
+<?php ob_start(); 
+if(isset($_SESSION["id_user"])){
+?>
 <?php //if (! isset($_REQUEST['bEnviar'])){ ?>
 <?php if(isset($params['mensaje'])) :?>
 <b><span style="color: red;"><?php echo $params['mensaje'] ?></span></b>
@@ -23,10 +25,9 @@
     </table>
     
     </form>
-<?php /*
-}else{
-    echo "Mensaje enviado";
-}*/?>
+<?php }else{
+	echo "Debes ser un usuario registrado para ver el contenido de esta pagina. Porfavor inicie sesion o registrese.";
+}?>
 
 <?php $contenido = ob_get_clean() ?>
 

@@ -1,4 +1,4 @@
-<?php ob_start() ?>
+<?php ob_start();?>
 
 <?php if(isset($params['mensaje'])) :?>
 <b><span style="color: red;"><?php echo $params['mensaje'] ?></span></b>

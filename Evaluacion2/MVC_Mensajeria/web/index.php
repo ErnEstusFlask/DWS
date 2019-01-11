@@ -1,4 +1,5 @@
 <?php
+session_start();
 // web/index.php
 
 // carga del modelo y los controladores
@@ -10,7 +11,7 @@ require_once __DIR__ . '/../app/Controller.php';
 // enrutamiento
 $map = array(
 'inicio' => array('controller' =>'Controller', 'action' =>'inicio'),
-'inicioL' => array('controller' =>'Controller', 'action' =>'inicioL'),
+'logout' => array('controller' =>'Controller', 'action' =>'logout'),
 'listar' => array('controller' =>'Controller', 'action' =>'listar'),
 'listarM' => array('controller' =>'Controller', 'action' =>'listarM'),
 'insertar' => array('controller' =>'Controller', 'action' =>'insertar'),

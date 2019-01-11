@@ -18,8 +18,9 @@
 <a href="index.php?ctl=insertar">Registrarse</a> |
 <a href="index.php?ctl=enviar">Enviar Mensaje</a> |
 <a href="index.php?ctl=buscar">Buscar Usuario</a> |
-<a href="index.php?ctl=buscarMensajesSend">Buscar Mensajes por Emisor</a>
-<a href="index.php?ctl=buscarMensajesRec">Buscar Mensajes por Destinatario</a>
+<a href="index.php?ctl=buscarMensajesSend">Buscar Mensajes por Emisor</a> |
+<a href="index.php?ctl=buscarMensajesRec">Buscar Mensajes por Destinatario</a> |
+<a href="index.php?ctl=logout">Cerrar Sesion</a>
 <hr/>
 </div>
 

@@ -14,10 +14,9 @@ function validarDatosL($nombre, $contrasena)
         is_string($contrasena));
 }
 
-function validarDatosM($destinatario, $env, $asunto, $mensaje)
+function validarDatosM($destinatario, $asunto, $mensaje)
 {
     return (is_string($destinatario) &
-        is_string($env) &
         is_string($asunto) &
         is_string($mensaje));
 }

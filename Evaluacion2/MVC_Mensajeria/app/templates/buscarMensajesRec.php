@@ -1,4 +1,6 @@
-<?php ob_start() ?>
+<?php ob_start(); 
+if(isset($_SESSION["id_user"])){
+?>
 
 <form name="formBusqueda" action="index.php?ctl=buscarMensajesRec" method="POST">
 
@@ -33,7 +35,9 @@
 
 </table>
 <?php endif; ?>
-
+<?php }else{
+	echo "Debes ser un usuario registrado para ver el contenido de esta pagina. Porfavor inicie sesion o registrese.";
+}?>
 <?php $contenido = ob_get_clean() ?>
 
 <?php include 'layout.php' ?>

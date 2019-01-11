@@ -23,13 +23,27 @@ class Model extends PDO
     public function login($nombre, $contrasena)
     {
         try {
-            $consulta = "select id_us from usuario where name like :nombre and password like :contrasena";
+        	$consulta = "select password from usuario where name like 'admin'";
+        	
+        	$result = $this->conexion->prepare($consulta);
+        	
+        	//$result->bindParam(':nombre', $nombre);
+        	$result->execute();
+        	$pwd=$result->fetchAll();
+        	$tPwd=$pwd[0]['password'][0];
+        	
+        	if(password_verify($tPwd, $hash)){
+        		$consulta = "select id_us from usuario where name like 'admin'";
+        		
+        		$result = $this->conexion->prepare($consulta);
+        		
+        		//$result->bindParam(':nombre', $nombre);
+        		$result->execute();
+        		return $result->fetchAll();
+        	}else{
+        		return false;
+        	}
             
-            $result = $this->conexion->prepare($consulta);
-            $result->bindParam(':nombre', $nombre);
-            $result->bindParam(':contasena', $contrasena);
-            $result->execute();
-            return $result->fetchAll();
             
         } catch (PDOException $e) {
             
@@ -150,10 +164,11 @@ class Model extends PDO
     //añadir validador para no repetir usuario/correo
     public function insertarUsuario($name, $pass, $mail)
     {
+    	$hash = password_hash($pass, PASSWORD_DEFAULT, [15]);
         $consulta = "insert into usuario (name, password, mail) values (?, ?, ?)";
         $result = $this->conexion->prepare($consulta);
         $result->bindParam(1, $name);
-        $result->bindParam(2, $pass);
+        $result->bindParam(2, $hash);
         $result->bindParam(3, $mail);
         $result->execute();
                 

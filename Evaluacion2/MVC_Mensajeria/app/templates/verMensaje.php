@@ -1,4 +1,4 @@
-<?php ob_start() ?>
+<?php ob_start(); ?>
 
 <h1><?php echo $params['subject'] ?></h1>
 <table border="1">

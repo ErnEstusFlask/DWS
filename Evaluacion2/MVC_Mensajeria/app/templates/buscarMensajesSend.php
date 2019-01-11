@@ -1,4 +1,6 @@
-<?php ob_start() ?>
+<?php ob_start(); 
+if(isset($_SESSION["id_user"])){
+?>
 
 <form name="formBusqueda" action="index.php?ctl=buscarMensajesSend" method="POST">
 
@@ -18,7 +20,7 @@
 <?php if (count($params['resultado'])>0): ?>
 <table>
 <tr>
-<th>Destinatario</th>
+<th>Emisor</th>
 <th>Asunto</th>
 <th>Mensaje</th>
 </tr>
@@ -33,7 +35,9 @@
 
 </table>
 <?php endif; ?>
-
+<?php }else{
+	echo "Debes ser un usuario registrado para ver el contenido de esta pagina. Porfavor inicie sesion o registrese.";
+}?>
 <?php $contenido = ob_get_clean() ?>
 
 <?php include 'layout.php' ?>

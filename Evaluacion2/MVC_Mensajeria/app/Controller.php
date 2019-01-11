@@ -6,9 +6,9 @@ class Controller
 
 	public function inicio()
 	{
-	    session_start();
 	    if(isset($_SESSION["id_user"])){
-	        header('Location: index.php?ctl=ver&id='+($_SESSION["id_user"]));
+	    	$ayy=$_SESSION["id_user"];
+	        header("Location: index.php?ctl=ver&id=$ayy");
 	    }else{
 	        $m = new Model();
 	        $params = array(
@@ -25,11 +25,12 @@ class Controller
 	            // comprobar campos formulario
 	            if (validarDatosL($nombre, $contrasena)) {
 	                $id=$m->login($nombre, $contrasena);
+	                $tId=$id[0]['id_us'][0];
 	                print_r($m->login($nombre, $contrasena));
-	                echo "asdasd";
-	                if ($id!=false){
-	                    $_SESSION["id_user"]=$id;
-	                    header('Location: index.php?ctl=ver&id='+($_SESSION["id_user"]));
+	                if ($tId!=false){
+	                    $_SESSION["id_user"]=$tId;
+	                    
+	                    header("Location: index.php?ctl=ver&id=$tId");
 	                }else {
 	                    $params = array(
 	                        'nombre' => $nombre,
@@ -55,6 +56,14 @@ class Controller
 	        require __DIR__ . '/templates/inicio.php';
 	    }
 	}
+	public function logout()
+	{
+		
+		$m = new Model();
+	
+	
+		require __DIR__ . '/templates/logout.php';
+	}
 	
 	public function listar()
 	{
@@ -65,7 +74,7 @@ class Controller
 		$params = array(
 		    'usuarios' => $m->dameUsuarios(),
 		);
-
+		
 		require __DIR__ . '/templates/mostrarUsuarios.php';
 	}
 	
@@ -124,7 +133,6 @@ class Controller
 	{
 	    $params = array(
 	        'rec' => '',
-	        'send' => '',
 	        'subject' => '',
 	        'mensajeria' => ''
 	    );
@@ -133,17 +141,15 @@ class Controller
 	    
 	    if (isset ($_POST['enviar'])) {
 	        $destinatario=recoge('rec');
-	        $env=recoge('send');
 	        $asunto=recoge('subject');
 	        $mensaje=recoge('mensajeria');
 	        // comprobar campos formulario
-	        if (validarDatosM($destinatario, $env, $asunto, $mensaje)) {
-	            if ($m->enviarMensaje($env, $destinatario, $asunto, $mensaje)){
+	        if (validarDatosM($destinatario, $asunto, $mensaje)) {
+	            if ($m->enviarMensaje($_SESSION["id_user"], $destinatario, $asunto, $mensaje)){
 	                header('Location: index.php?ctl=enviar');//cambiar a mensajes enviados por el usuario
 	            }else {
 	                $params = array(
 	                    'rec' => $destinatario,
-	                    'send' => $env,
 	                    'subject' => $asunto,
 	                    'mensajeria' => $mensaje
 	                );
@@ -152,7 +158,6 @@ class Controller
 	        } else {
 	            $params = array(
 	                'rec' => $destinatario,
-	                'send' => $env,
 	                'subject' => $asunto,
 	                'mensajeria' => $mensaje
 	            );
@@ -177,7 +182,6 @@ class Controller
 			$params['nombre'] = $nombre;
 			$params['resultado'] = $m->buscarUsuariosPorNombre($nombre);
 		}
-
 		require __DIR__ . '/templates/buscarPorNombre.php';
 	}
 	

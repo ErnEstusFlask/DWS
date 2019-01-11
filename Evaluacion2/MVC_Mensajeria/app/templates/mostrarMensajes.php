@@ -1,4 +1,6 @@
-<?php ob_start() ?>
+<?php ob_start(); 
+if(isset($_SESSION["id_user"])){
+?>
 
 <table>
 <tr>
@@ -14,7 +16,9 @@
 <?php endforeach; ?>
 
 </table>
-
+<?php }else{ 
+	echo "Debes ser un usuario registrado para ver el contenido de esta pagina. Porfavor inicie sesion o registrese.";
+}?>
 
 <?php $contenido = ob_get_clean() ?>
 

@@ -1,4 +1,4 @@
-<?php ob_start() ?>
+<?php ob_start();session_start(); ?>
 <h1>Inicio</h1>
 <h3> Fecha: <?php echo $params['fecha'] ?> </h3>
 <?php echo $params['mensaje'] ?>
