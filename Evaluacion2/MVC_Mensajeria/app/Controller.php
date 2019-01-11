@@ -26,7 +26,6 @@ class Controller
 	            if (validarDatosL($nombre, $contrasena)) {
 	                $id=$m->login($nombre, $contrasena);
 	                $tId=$id[0]['id_us'][0];
-	                print_r($m->login($nombre, $contrasena));
 	                if ($tId!=false){
 	                    $_SESSION["id_user"]=$tId;
 	                    
@@ -85,7 +84,10 @@ class Controller
 	    $params = array(
 	        'mensaje' => $m->dameMensajes(),
 	    );
-	    
+	    $sender=$params['mensaje'][0]['id_send'];
+	    $reciver=$params['mensaje'][0]['id_rec'];
+	    $params['mensaje'][0]['id_send']=$m->dameUsuario($sender);
+	    $params['mensaje'][0]['id_rec']=$m->dameUsuario($reciver);
 	    require __DIR__ . '/templates/mostrarMensajes.php';
 	}
 
@@ -145,7 +147,7 @@ class Controller
 	        $mensaje=recoge('mensajeria');
 	        // comprobar campos formulario
 	        if (validarDatosM($destinatario, $asunto, $mensaje)) {
-	            if ($m->enviarMensaje($_SESSION["id_user"], $destinatario, $asunto, $mensaje)){
+	            if ($m->enviarMensaje($destinatario, $asunto, $mensaje)){
 	                header('Location: index.php?ctl=enviar');//cambiar a mensajes enviados por el usuario
 	            }else {
 	                $params = array(
@@ -207,18 +209,20 @@ class Controller
 	
 	public function buscarMensajesSend()
 	{
+		$m = new Model();
 	    $params = array(
-	        'send' => '',
+	        'rec' => '',
 	        'resultado' => array(),
+    		'mensaje' => $m->dameMensajes(),
 	    );
 	    
-	    $m = new Model();
+	    
 	    
 	    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-	        
-	        $send=recoge("send");
-	        $params['send'] = $send;
-	        $params['resultado'] = $m->buscarMensajeSend($send);
+	    	
+	    	$reciver=$params['mensaje'][0]['id_rec'];
+	    	$params['mensaje'][0]['id_rec']=$m->dameUsuario($reciver);
+	        $params['resultado'] = $m->buscarMensajeSend($_SESSION["id_user"]);
 	    }
 	    
 	    require __DIR__ . '/templates/buscarMensajesSend.php';

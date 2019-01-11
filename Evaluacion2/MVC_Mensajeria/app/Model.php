@@ -32,17 +32,17 @@ class Model extends PDO
         	$pwd=$result->fetchAll();
         	$tPwd=$pwd[0]['password'][0];
         	
-        	if(password_verify($tPwd, $hash)){
-        		$consulta = "select id_us from usuario where name like 'admin'";
+        	//if(password_verify($contrasena, $tPwd)){
+        		$consulta = "select id_us from usuario where name like 'admin' and password like 'admin'";
         		
         		$result = $this->conexion->prepare($consulta);
         		
         		//$result->bindParam(':nombre', $nombre);
         		$result->execute();
         		return $result->fetchAll();
-        	}else{
+        	/*}else{
         		return false;
-        	}
+        	}*/
             
             
         } catch (PDOException $e) {
@@ -175,11 +175,11 @@ class Model extends PDO
         return $result;
     }
 
-    public function enviarMensaje($send, $rec, $subj, $mensaje)
+    public function enviarMensaje($rec, $subj, $mensaje)
     {
         $consulta = "insert into mensaje (id_send, id_rec, subject, mensaje) values (?, ?, ?, ?)";
         $result = $this->conexion->prepare($consulta);
-        $result->bindParam(1, $send);
+        $result->bindParam(1, $_SESSION["id_user"]);
         $result->bindParam(2, $rec);
         $result->bindParam(3, $subj);
         $result->bindParam(4, $mensaje);
