@@ -9,8 +9,6 @@
     <tr>
     <td>Destinatario:</td>
     <td><input type="text" name="rec" value="<?php echo $params['rec']?>"></td>
-    <td>Emisor:</td>
-    <td><input type="text" name="send" value="<?php echo $params['send']?>"></td>
     </tr>
     <tr>
     <td>Asunto:</td>

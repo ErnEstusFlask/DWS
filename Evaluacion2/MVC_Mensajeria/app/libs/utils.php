@@ -8,6 +8,12 @@ function validarDatos($nombre, $contrasena, $correo)
         is_string($correo));
 }
 
+function validarDatosL($nombre, $contrasena)
+{
+    return (is_string($nombre) &
+        is_string($contrasena));
+}
+
 function validarDatosM($destinatario, $env, $asunto, $mensaje)
 {
     return (is_string($destinatario) &

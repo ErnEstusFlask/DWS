@@ -13,7 +13,6 @@
 <div id="menu">
 <hr/>
 <a href="index.php?ctl=inicio">Inicio</a> |
-<a href="index.php?ctl=login">Login</a> |
 <a href="index.php?ctl=listar">Ver Usuarios</a> |
 <a href="index.php?ctl=listarM">Bandeja de entrada</a> |
 <a href="index.php?ctl=insertar">Registrarse</a> |

@@ -20,6 +20,22 @@ class Model extends PDO
         }
     }
 
+    public function login($nombre, $contrasena)
+    {
+        try {
+            $consulta = "select id_us from usuario where name like :nombre and password like :contrasena";
+            
+            $result = $this->conexion->prepare($consulta);
+            $result->bindParam(':nombre', $nombre);
+            $result->bindParam(':contasena', $contrasena);
+            $result->execute();
+            return $result->fetchAll();
+            
+        } catch (PDOException $e) {
+            
+            return false;
+        }
+    }
    
 
     public function dameUsuarios()

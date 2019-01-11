@@ -6,13 +6,56 @@ class Controller
 
 	public function inicio()
 	{
-		$params = array(
-				'mensaje' => 'Bienvenido al servicio de mensajeria',
-				'fecha' => date('d-m-y'),
-		);
-		require __DIR__ . '/templates/inicio.php';
+	    session_start();
+	    if(isset($_SESSION["id_user"])){
+	        header('Location: index.php?ctl=ver&id='+($_SESSION["id_user"]));
+	    }else{
+	        $m = new Model();
+	        $params = array(
+	            'nombre' => '',
+	            'password' => '',
+	            'mensaje1' => 'Bienvenido al servicio de mensajeria',
+	            'mensaje2' => 'Porfavor inicie sesion o registrese para acceder a las funciones del servicio',
+	            'fecha' => date('d-m-y'),
+	            'mensaje'=>''
+	        );
+	        if (isset ($_POST['logged'])) {
+	            $nombre=recoge('nombre');
+	            $contrasena=recoge('contrasena');
+	            // comprobar campos formulario
+	            if (validarDatosL($nombre, $contrasena)) {
+	                $id=$m->login($nombre, $contrasena);
+	                print_r($m->login($nombre, $contrasena));
+	                echo "asdasd";
+	                if ($id!=false){
+	                    $_SESSION["id_user"]=$id;
+	                    header('Location: index.php?ctl=ver&id='+($_SESSION["id_user"]));
+	                }else {
+	                    $params = array(
+	                        'nombre' => $nombre,
+	                        'password' => $contrasena,
+	                        'mensaje1' => 'Bienvenido al servicio de mensajeria',
+	                        'mensaje2' => 'Porfavor inicie sesion o registrese para acceder a las funciones del servicio',
+	                        'fecha' => date('d-m-y'),
+	                    );
+	                    $params['mensaje'] = 'No se ha podido iniciar sesion. Revisa el formulario';
+	                }
+	            } else {
+	                $params = array(
+	                    'nombre' => $nombre,
+	                    'password' => $contrasena,
+	                    'mensaje1' => 'Bienvenido al servicio de mensajeria',
+	                    'mensaje2' => 'Porfavor inicie sesion o registrese para acceder a las funciones del servicio',
+	                    'fecha' => date('d-m-y'),
+	                );
+	                $params['mensaje'] = 'Usuario o contraseña incorrectos. Revise los datos';
+	            }
+	        }
+	        
+	        require __DIR__ . '/templates/inicio.php';
+	    }
 	}
-
+	
 	public function listar()
 	{
 		//Al crear el objeto, conectamos con la BD con los parámetros de config.php
@@ -42,7 +85,8 @@ class Controller
 		$params = array(
 				'nombre' => '',
 				'password' => '',
-				'mail' => ''
+				'mail' => '',
+		        'mensaje'=>''
 		);
 
 		$m = new Model();
@@ -51,8 +95,6 @@ class Controller
 		    $nombre=recoge('nombre');
 		    $contrasena=recoge('contrasena');
 		    $correo=recoge('correo');
-		    echo $contrasena;
-		    echo $correo;
 			// comprobar campos formulario
 		    if (validarDatos($nombre, $contrasena,$correo)) {
 		        if ($m->insertarUsuario($nombre, $contrasena, $correo)){
