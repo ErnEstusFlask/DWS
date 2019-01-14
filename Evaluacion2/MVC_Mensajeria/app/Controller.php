@@ -58,9 +58,6 @@ class Controller
 	public function logout()
 	{
 		
-		$m = new Model();
-	
-	
 		require __DIR__ . '/templates/logout.php';
 	}
 	

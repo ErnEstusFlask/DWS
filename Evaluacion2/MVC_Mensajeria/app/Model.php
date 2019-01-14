@@ -23,26 +23,26 @@ class Model extends PDO
     public function login($nombre, $contrasena)
     {
         try {
-        	$consulta = "select password from usuario where name like 'admin'";
+            echo $nombre;
+        	$consulta1 = "select password from usuario where name like :name";
         	
-        	$result = $this->conexion->prepare($consulta);
-        	
-        	//$result->bindParam(':nombre', $nombre);
-        	$result->execute();
-        	$pwd=$result->fetchAll();
-        	$tPwd=$pwd[0]['password'][0];
-        	
-        	//if(password_verify($contrasena, $tPwd)){
-        		$consulta = "select id_us from usuario where name like 'admin' and password like 'admin'";
+        	$result1 = $this->conexion->prepare($consulta1);
+        	$result1->bindParam(':name', $nombre);
+        	$result1->execute();
+        	$pwd=$result1->fetchAll();
+        	$tPwd=$pwd[0]['password'];
+        	if(password_verify($contrasena, $tPwd)){
+        		$consulta = "select id_us from usuario where name like :name and password like :pass";
         		
         		$result = $this->conexion->prepare($consulta);
-        		
-        		//$result->bindParam(':nombre', $nombre);
+        		$result->bindParam(':name', $nombre);
+        		$result->bindParam(':pass', $tPwd);
         		$result->execute();
+        		print_r($result);
         		return $result->fetchAll();
-        	/*}else{
+        	}else{
         		return false;
-        	}*/
+        	}
             
             
         } catch (PDOException $e) {

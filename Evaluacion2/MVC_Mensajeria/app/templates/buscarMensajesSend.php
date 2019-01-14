@@ -22,7 +22,7 @@ if(isset($_SESSION["id_user"])){
 </tr>
 <?php foreach ($params['resultado'] as $mensaje) : ?>
 <tr>
-<td><?php echo $params['mensaje'][0]['id_rec']['name'] ?></td>
+<td><?php print_r($params['mensaje']); echo $params['mensaje'][0]['id_rec']['name'] ?></td>
 <td><a href="index.php?ctl=verM&id_men=<?php echo $mensaje['id_men'] ?>">
 <?php echo $mensaje['subject'] ?></a></td>
 <td><?php echo $mensaje['mensaje'] ?></td>
